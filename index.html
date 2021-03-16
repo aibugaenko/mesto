@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+<body class="root">
+    <div class="page">
+        <header class="header section section_size_narrow">
+            <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+        </header>
+        <main>
+            <section class="profile section section_size_narrow">
+                <div class="profile__info">
+                    <img class="profile__avatar" src="./images/kusto.jpg" alt="Фото пользователя">
+                        <div class="profile__container">
+                            <div class="profile__user-container">
+                            <h1 class="profile__name">Жак-Ив Кусто</h1>
+                            <p class="profile__about">Исследователь океана</p>
+                            </div>
+                            <button class="profile__edit-button"></button>
+                        </div>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+            <section class="elements section section_size_narrow">
+                <div class="element">
+                    <img class="element__photo" src="./images/moscow.jpg" alt="Москва">
+                    <div class="element__title-container">
+                        <h2 class="element__title element__title_black">Москва</h2>
+                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__photo" src="./images/rome.jpg" alt="Рим">
+                    <div class="element__title-container">
+                        <h2 class="element__title element__title_black">Рим</h2>
+                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__photo" src="./images/luxor.jpg" alt="Луксор">
+                    <div class="element__title-container">
+                        <h2 class="element__title element__title_black">Луксор</h2>
+                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__photo" src="./images/tokyo.jpg" alt="Токио">
+                    <div class="element__title-container">
+                        <h2 class="element__title element__title_black">Токио</h2>
+                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__photo" src="./images/newyork.jpg" alt="Нью-Йорк">
+                    <div class="element__title-container">
+                        <h2 class="element__title element__title_black">Нью-Йорк</h2>
+                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                    </div>
+                </div>
+                <div class="element">
+                    <img class="element__photo" src="./images/melbourne.jpg" alt="Мельбурн">
+                    <div class="element__title-container">
+                        <h2 class="element__title element__title_black">Мельбурн</h2>
+                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer section section_size_narrow">
+            <p class=footer__copyright>&copy; 2020 Mesto Russia</p>
+        </footer>
+
+        <div class="popup">
+            <div class="popup__overlay"></div>
+            <div class="popup__container">
+                <form class="popup__form">
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input class="popup__form-input popup__form-input_name" type="text">
+                    <input class="popup__form-input poup__form-input_about" type="text">
+                    <button class="popup__form-button" type="submit">Сохранить</button>
+                </form>
+                <img class="popup__closeicon" src="./images/CloseIcon.svg" alt="Закрыть окно">
+            </div>
+        </div>
+    
+    </div>
+    <script src="./vendor/script.js"></script>
+
+</body>
+</html>
