@@ -9,8 +9,8 @@
 </head>
 <body class="root">
     <div class="page">
-        <header class="header section section_size_narrow">
-            <img class="header__logo" src="./images/logo.svg" alt="Логотип">
+        <header class="header">
+            <div class="header__logo"></div>
         </header>
         <main>
             <section class="profile section section_size_narrow">
@@ -21,54 +21,54 @@
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
                             <p class="profile__about">Исследователь океана</p>
                             </div>
-                            <button class="profile__edit-button"></button>
+                            <button class="profile__edit-button" type="button" aria-label="Редактирование профиля"></button>
                         </div>
                 </div>
-                <button class="profile__add-button"></button>
+                <button class="profile__add-button" type="button" aria-label="Добавление информации"></button>
             </section>
             <section class="elements section section_size_narrow">
-                <div class="element">
-                    <img class="element__photo" src="./images/moscow.jpg" alt="Москва">
+                <article class="element">
+                    <img class="element__photo" src="./images/moscow.jpg" alt="Кремль в Москве">
                     <div class="element__title-container">
-                        <h2 class="element__title element__title_black">Москва</h2>
-                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                        <h2 class="element__title element__title_text_black">Москва</h2>
+                        <button class="element__like" type="button" aria-label="Нравится"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__photo" src="./images/rome.jpg" alt="Рим">
+                </article>
+                <article class="element">
+                    <img class="element__photo" src="./images/rome.jpg" alt="Дворец в Риме">
                     <div class="element__title-container">
-                        <h2 class="element__title element__title_black">Рим</h2>
-                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                        <h2 class="element__title element__title_text_black">Рим</h2>
+                        <button class="element__like" type="button" aria-label="Нравится"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__photo" src="./images/luxor.jpg" alt="Луксор">
+                </article>
+                <article class="element">
+                    <img class="element__photo" src="./images/luxor.jpg" alt="Пирамиды в Луксоре">
                     <div class="element__title-container">
-                        <h2 class="element__title element__title_black">Луксор</h2>
-                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                        <h2 class="element__title element__title_text_black">Луксор</h2>
+                        <button class="element__like" type="button" aria-label="Нравится"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__photo" src="./images/tokyo.jpg" alt="Токио">
+                </article>
+                <article class="element">
+                    <img class="element__photo" src="./images/tokyo.jpg" alt="Улица Токио">
                     <div class="element__title-container">
-                        <h2 class="element__title element__title_black">Токио</h2>
-                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                        <h2 class="element__title element__title_text_black">Токио</h2>
+                        <button class="element__like" type="button" aria-label="Нравится"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__photo" src="./images/newyork.jpg" alt="Нью-Йорк">
+                </article>
+                <article class="element">
+                    <img class="element__photo" src="./images/newyork.jpg" alt="Вид с небоскреба на Нью-Йорк">
                     <div class="element__title-container">
-                        <h2 class="element__title element__title_black">Нью-Йорк</h2>
-                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                        <h2 class="element__title element__title_text_black">Нью-Йорк</h2>
+                        <button class="element__like" type="button" aria-label="Нравится"></button>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__photo" src="./images/melbourne.jpg" alt="Мельбурн">
+                </article>
+                <article class="element">
+                    <img class="element__photo" src="./images/melbourne.jpg" alt="Побережье в Мельбурне">
                     <div class="element__title-container">
-                        <h2 class="element__title element__title_black">Мельбурн</h2>
-                        <img class="element__like" src="./images/like.svg" alt="Нравится">
+                        <h2 class="element__title element__title_text_black">Мельбурн</h2>
+                        <button class="element__like" type="button" aria-label="Нравится"></button>
                     </div>
-                </div>
+                </article>
             </section>
         </main>
         <footer class="footer section section_size_narrow">
@@ -78,18 +78,18 @@
         <div class="popup">
             <div class="popup__overlay"></div>
             <div class="popup__container">
-                <form class="popup__form">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__form-input popup__form-input-name" type="text">
-                    <input class="popup__form-input popup__form-input-about" type="text">
-                    <button class="popup__form-button" type="submit">Сохранить</button>
+                <form class="popup__form" method="POST" name="userform">
+                    <h3 class="popup__title">Редактировать профиль</h3>
+                    <input class="popup__form-input popup__form-input_type_username" type="text" name="username" placeholder="Имя">
+                    <input class="popup__form-input popup__form-input_type_about" type="text" name="about" placeholder="О себе">
+                    <button class="popup__form-button" type="submit" aria-label="Сохранить">Сохранить</button>
                 </form>
-                <img class="popup__closeicon" src="./images/CloseIcon.svg" alt="Закрыть окно">
+                <button class="popup__closeicon" type="button" aria-label="Закрыть"></button>
             </div>
         </div>
     
     </div>
-    <script src="./vendor/script.js"></script>
+    <script src="./scripts/script.js"></script>
 
 </body>
 </html>

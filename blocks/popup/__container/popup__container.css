@@ -1,17 +1,15 @@
 .popup__container {
-    position: absolute;
+    position: relative;
     max-width: 430px;
     min-height: 330px;
     width: 100%;
-    top: 195px;
-    left: 50%;
     background-color: white;
     color: black;
-    transform: translateX(-50%);
     border-radius: 10px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     padding: 34px 0 37px;
     box-sizing: border-box;
+    z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
@@ -19,6 +17,5 @@
         max-width: 282px;
         min-height: 322px;
         padding: 25px 0;
-        top: 123px;
     }   
 }

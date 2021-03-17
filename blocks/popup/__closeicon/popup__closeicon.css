@@ -6,6 +6,13 @@
     top: -48.28px;
     transition: opacity 0.5s ease 0.1s;
     cursor: pointer;
+    z-index: 1;
+    background-image: url(../../../images/CloseIcon.svg);
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    background-position: center;
+    background-size: 100%;
 }
 
 .popup__closeicon:hover {
