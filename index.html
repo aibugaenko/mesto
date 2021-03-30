@@ -52,8 +52,10 @@
             <div class="popup__container">
                 <form class="popup__form" id="formelementcard" method="POST" name="cardform">
                     <h3 class="popup__title">Новое место</h3>
-                    <input class="popup__form-input popup__form-input_type_cardplace" type="text" name="cardplace" placeholder="Название">
-                    <input class="popup__form-input popup__form-input_type_cardphoto" type="text" name="cardphoto" placeholder="Ссылка на картинку">
+                    <input class="popup__form-input popup__form-input_type_cardplace" type="text" name="cardplace" 
+                    placeholder="Название">
+                    <input class="popup__form-input popup__form-input_type_cardphoto" type="text" name="cardphoto" 
+                    placeholder="Ссылка на картинку">
                     <button class="popup__form-button" type="submit" aria-label="Создать">Создать</button>
                 </form>
                 <button class="popup__closeicon" id="popupcloseiconadd" type="reset" aria-label="Закрыть"></button>
@@ -62,18 +64,20 @@
 
         <div class="photo-view">
             <div class="photo-view__overlay"></div>
-            <figure class="photo-view__figure">
-                <img class="photo-view__image">
-                <figcaption class="photo-view__caption"></figcaption>
-                <button class="photo-view__closebutton" type="reset" aria-label="Закрыть"></button>
-            </figure>
+            <div class="photo-view__container">
+                <figure class="photo-view__figure">
+                    <img class="photo-view__image" alt="Фотография">
+                    <figcaption class="photo-view__caption"></figcaption>
+                </figure>
+                <button class="photo-view__closeicon" type="reset" aria-label="Закрыть"></button>
+            </div>
         </div>
 
     </div>
 
     <template id="templateelements">
         <article class="element">
-            <button class="element__photo-button"><img class="element__photo"></button>
+            <button class="element__photo-button"><img class="element__photo" alt="Фотография"></button>
             <div class="element__title-container">
                 <h2 class="element__title element__title_text_black"></h2>
                 <button class="element__like" type="button" aria-label="Нравится"></button>
