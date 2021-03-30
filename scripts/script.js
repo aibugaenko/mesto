@@ -16,7 +16,7 @@ const cardphotoInput = document.querySelector('.popup__form-input_type_cardphoto
 const formElementCard = document.querySelector('#formelementcard');
 const templateElement = document.querySelector('#templateelements').content.querySelector('.element');
 const PhotoView = document.querySelector('.photo-view');
-const closeButtonPhotoView = document.querySelector('.photo-view__closeicon');
+const closeButtonPhotoView = document.querySelector('.photo-view__closebutton');
 const PhotoViewImage = document.querySelector('.photo-view__image');
 const PhotoViewCaption = document.querySelector('.photo-view__caption');
 

@@ -1,4 +1,4 @@
-.photo-view__closeicon {
+.photo-view__closebutton {
     position: absolute;
     width: 56.56px;
     height: 56.56px;
@@ -15,12 +15,12 @@
     background-size: 100%;
 }
 
-.photo-view__closeicon:hover {
+.photo-view__closebutton:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
-    .photo-view__closeicon {
+    .photo-view__closebutton {
         width: 36.76px;
         height: 36.76px;
         top: -50.38px;
