@@ -1,9 +1,13 @@
-.popup {
+.photo-view {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     visibility: hidden;
     opacity: 0;
     transition: visability 0s, opacity 0.3s linear;

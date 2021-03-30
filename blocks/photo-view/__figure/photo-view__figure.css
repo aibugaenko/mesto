@@ -1,0 +1,6 @@
+.photo-view__figure {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+}
