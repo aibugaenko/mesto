@@ -16,7 +16,7 @@ const cardphotoInput = document.querySelector('.popup__form-input_type_cardphoto
 const formElementCard = document.querySelector('#formelementcard');
 const templateElement = document.querySelector('#templateelements').content.querySelector('.element');
 const PhotoView = document.querySelector('.photo-view');
-const closeButtonPhotoView = document.querySelector('#popupcloseiconphotoview');
+const closeButtonPhotoView = document.querySelector('.photo-view__closeicon');
 const PhotoViewImage = document.querySelector('.photo-view__image');
 const PhotoViewCaption = document.querySelector('.photo-view__caption');
 
@@ -51,7 +51,7 @@ const cards = [
 
 const cardsSubmitHandler = ((evt) => {
     evt.preventDefault();
-    
+
     const cardsElement = templateElement.cloneNode(true);
 
     cardsElement.querySelector('.element__title').textContent = cardplaceInput.value;
