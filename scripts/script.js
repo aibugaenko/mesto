@@ -84,7 +84,7 @@ function createCards(el) {
     photoViewCaption.textContent = el.name;
     photoViewImage.src = el.link;
 
-    togglePhotoView();
+    openModal(photoView);
   }
 
   addCards(cardsElement);
@@ -98,8 +98,7 @@ const addCards = (el) => {
   elementsList.prepend(el);
 };
 
-cards.reverse();
-cards.forEach((el) => {
+cards.reverse().forEach((el) => {
   createCards(el);
 });
 
@@ -111,10 +110,6 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
-}
-
-function togglePhotoView() {
-  photoView.classList.toggle("photo-view_opened");
 }
 
 function formSubmitHandler(evt) {
@@ -129,8 +124,7 @@ openButtonEdit.addEventListener("click", () => openModal(popupEdit));
 openButtonAdd.addEventListener("click", () => openModal(popupAdd));
 closeButtonEdit.addEventListener("click", () => closeModal(popupEdit));
 closeButtonAdd.addEventListener("click", () => closeModal(popupAdd));
-
-closeButtonPhotoView.addEventListener("click", togglePhotoView);
+closeButtonPhotoView.addEventListener("click", () => closeModal(photoView));
 
 formElementEdit.addEventListener("submit", formSubmitHandler);
 formElementCard.addEventListener("submit", cardsSubmitHandler);
