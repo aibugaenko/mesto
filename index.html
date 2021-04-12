@@ -35,12 +35,16 @@
         </footer>
 
         <div class="popup" id="popupedit">
-            <div class="popup__overlay"></div>
+            <div class="popup__overlay" id="overlayedit"></div>
             <div class="popup__container">
-                <form class="popup__form" id="formelementedit" method="POST" name="userform">
+                <form class="popup__form" id="formelementedit" method="POST" name="userform" novalidate>
                     <h3 class="popup__title">Редактировать профиль</h3>
-                    <input class="popup__form-input popup__form-input_type_username" type="text" name="username" placeholder="Имя">
-                    <input class="popup__form-input popup__form-input_type_about" type="text" name="about" placeholder="О себе">
+                    <input class="popup__form-input popup__form-input_type_username" id="username-input" type="text" name="username" placeholder="Имя"
+                    minlength="2" maxlength="40" required>
+                    <span class="popup__input-error username-input-error"></span>
+                    <input class="popup__form-input popup__form-input_type_about" id="about-input" type="text" name="about" placeholder="О себе"
+                    minlength="2" maxlength="200" required>
+                    <span class="popup__input-error about-input-error"></span>
                     <button class="popup__form-button" type="submit" aria-label="Сохранить">Сохранить</button>
                 </form>
                 <button class="popup__closeicon" id="popupcloseiconedit" type="reset" aria-label="Закрыть"></button>
@@ -48,14 +52,16 @@
         </div>
 
         <div class="popup" id="popupadd">
-            <div class="popup__overlay"></div>
+            <div class="popup__overlay" id="overlayadd"></div>
             <div class="popup__container">
-                <form class="popup__form" id="formelementcard" method="POST" name="cardform">
+                <form class="popup__form" id="formelementcard" method="POST" name="cardform" novalidate>
                     <h3 class="popup__title">Новое место</h3>
-                    <input class="popup__form-input popup__form-input_type_cardplace" type="text" name="cardplace" 
-                    placeholder="Название">
-                    <input class="popup__form-input popup__form-input_type_cardphoto" type="text" name="cardphoto" 
-                    placeholder="Ссылка на картинку">
+                    <input class="popup__form-input popup__form-input_type_cardplace" id="cardplace-input" type="text" name="cardplace" 
+                    placeholder="Название" minlength="2" maxlength="30" required>
+                    <span class="popup__input-error cardplace-input-error"></span>
+                    <input class="popup__form-input popup__form-input_type_cardphoto" id="cardphoto-input" type="url" name="cardphoto" 
+                    placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error cardphoto-input-error"></span>
                     <button class="popup__form-button" type="submit" aria-label="Создать">Создать</button>
                 </form>
                 <button class="popup__closeicon" id="popupcloseiconadd" type="reset" aria-label="Закрыть"></button>
@@ -87,6 +93,7 @@
     </template>
 
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
 
 </body>
 </html>

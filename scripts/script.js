@@ -27,6 +27,9 @@ const photoView = document.querySelector(".photo-view");
 const closeButtonPhotoView = document.querySelector(".photo-view__closeicon");
 const photoViewImage = document.querySelector(".photo-view__image");
 const photoViewCaption = document.querySelector(".photo-view__caption");
+const closeOverlayEdit = document.querySelector("#overlayedit");
+const closeOverlayAdd = document.querySelector("#overlayadd");
+const closePhotoViewOverlay = document.querySelector(".photo-view__overlay");
 
 const cards = [
   {
@@ -120,11 +123,22 @@ function formSubmitHandler(evt) {
   closeModal(popupEdit);
 }
 
+function escHandler(evt) {
+  if (evt.key === "Escape") {
+    closeModal(document.querySelector(".popup_opened"));
+  }
+}
+
+document.addEventListener("keydown", escHandler);
+
 openButtonEdit.addEventListener("click", () => openModal(popupEdit));
 openButtonAdd.addEventListener("click", () => openModal(popupAdd));
 closeButtonEdit.addEventListener("click", () => closeModal(popupEdit));
 closeButtonAdd.addEventListener("click", () => closeModal(popupAdd));
 closeButtonPhotoView.addEventListener("click", () => closeModal(photoView));
+closeOverlayEdit.addEventListener("click", () => closeModal(popupEdit));
+closeOverlayAdd.addEventListener("click", () => closeModal(popupAdd));
+closePhotoViewOverlay.addEventListener("click", () => closeModal(photoView));
 
 formElementEdit.addEventListener("submit", formSubmitHandler);
 formElementCard.addEventListener("submit", cardsSubmitHandler);
