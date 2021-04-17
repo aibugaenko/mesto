@@ -64,15 +64,25 @@ const cardsSubmitHandler = (evt) => {
   const placeValue = cardplaceInput.value;
   const photoValue = cardphotoInput.value;
 
-  createCards({ name: placeValue, link: photoValue });
+  addCards({ name: placeValue, link: photoValue });
   closeModal(popupAdd);
+  formElementCard.reset();
 };
+
+function photoHandler(el) {
+  photoViewCaption.textContent = el.name;
+  photoViewImage.src = el.link;
+  photoViewImage.alt = el.name;
+  
+  openModal(photoView);
+  }
 
 function createCards(el) {
   const cardsElement = templateElement.cloneNode(true);
 
   cardsElement.querySelector(".element__title").textContent = el.name;
   cardsElement.querySelector(".element__photo").src = el.link;
+  cardsElement.querySelector(".element__photo").alt = el.name;
 
   const deleteElementButton = cardsElement.querySelector(".element__delete");
   deleteElementButton.addEventListener("click", () => cardsElement.remove());
@@ -83,44 +93,40 @@ function createCards(el) {
       evt.target.classList.toggle("element__like_active");
     });
 
-  function photoHandler() {
-    photoViewCaption.textContent = el.name;
-    photoViewImage.src = el.link;
-
-    openModal(photoView);
-  }
-
-  addCards(cardsElement);
-
   cardsElement
     .querySelector(".element__photo-button")
-    .addEventListener("click", photoHandler);
+    .addEventListener("click", () => photoHandler(el));
+
+  return cardsElement;
 }
 
 const addCards = (el) => {
-  elementsList.prepend(el);
+  elementsList.prepend(createCards(el));
 };
 
 cards.reverse().forEach((el) => {
-  createCards(el);
+  addCards(el);
 });
 
 function openModal(modal) {
-  usernameInput.value = profileName.textContent;
-  aboutInput.value = profileAbout.textContent;
   modal.classList.add("popup_opened");
+  document.addEventListener("keydown", escHandler);
 }
 
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
+  document.removeEventListener("keydown", escHandler);
+  formElementEdit.reset();
+  formElementCard.reset();
 }
 
-function formSubmitHandler(evt) {
+function formEditProfileSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = usernameInput.value;
   profileAbout.textContent = aboutInput.value;
 
   closeModal(popupEdit);
+  formElementEdit.reset();
 }
 
 function escHandler(evt) {
@@ -129,9 +135,12 @@ function escHandler(evt) {
   }
 }
 
-document.addEventListener("keydown", escHandler);
+openButtonEdit.addEventListener("click", function() { 
+  openModal(popupEdit)
+  usernameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
+});
 
-openButtonEdit.addEventListener("click", () => openModal(popupEdit));
 openButtonAdd.addEventListener("click", () => openModal(popupAdd));
 closeButtonEdit.addEventListener("click", () => closeModal(popupEdit));
 closeButtonAdd.addEventListener("click", () => closeModal(popupAdd));
@@ -140,5 +149,5 @@ closeOverlayEdit.addEventListener("click", () => closeModal(popupEdit));
 closeOverlayAdd.addEventListener("click", () => closeModal(popupAdd));
 closePhotoViewOverlay.addEventListener("click", () => closeModal(photoView));
 
-formElementEdit.addEventListener("submit", formSubmitHandler);
+formElementEdit.addEventListener("submit", formEditProfileSubmitHandler);
 formElementCard.addEventListener("submit", cardsSubmitHandler);
