@@ -31,6 +31,7 @@ const closeOverlayEdit = document.querySelector("#overlayedit");
 const closeOverlayAdd = document.querySelector("#overlayadd");
 const closePhotoViewOverlay = document.querySelector(".photo-view__overlay");
 
+
 const cards = [
   {
     name: "Москва",
@@ -57,6 +58,11 @@ const cards = [
     link: "./images/melbourne.jpg",
   },
 ];
+
+//Не удалось исправить замечание проверяющего: 
+//Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку 
+//Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня 
+//появляется возможность сохранять пустые карточки.
 
 const cardsSubmitHandler = (evt) => {
   evt.preventDefault();
@@ -116,8 +122,6 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("popup_opened");
   document.removeEventListener("keydown", escHandler);
-  formElementEdit.reset();
-  formElementCard.reset();
 }
 
 function formEditProfileSubmitHandler(evt) {
@@ -126,7 +130,6 @@ function formEditProfileSubmitHandler(evt) {
   profileAbout.textContent = aboutInput.value;
 
   closeModal(popupEdit);
-  formElementEdit.reset();
 }
 
 function escHandler(evt) {
