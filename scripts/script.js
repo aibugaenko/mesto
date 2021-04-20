@@ -30,7 +30,7 @@ const photoViewCaption = document.querySelector(".photo-view__caption");
 const closeOverlayEdit = document.querySelector("#overlayedit");
 const closeOverlayAdd = document.querySelector("#overlayadd");
 const closePhotoViewOverlay = document.querySelector(".photo-view__overlay");
-
+const popupFormButton = document.querySelector("#popupaddbutton");
 
 const cards = [
   {
@@ -59,11 +59,6 @@ const cards = [
   },
 ];
 
-//Не удалось исправить замечание проверяющего: 
-//Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку 
-//Сохранить активной при пустых полях, а она должна быть неактивной. При этом у меня 
-//появляется возможность сохранять пустые карточки.
-
 const cardsSubmitHandler = (evt) => {
   evt.preventDefault();
 
@@ -73,15 +68,17 @@ const cardsSubmitHandler = (evt) => {
   addCards({ name: placeValue, link: photoValue });
   closeModal(popupAdd);
   formElementCard.reset();
+  popupFormButton.classList.add(settings.inactiveButtonClass);
+  popupFormButton.setAttribute("disabled", true);
 };
 
 function photoHandler(el) {
   photoViewCaption.textContent = el.name;
   photoViewImage.src = el.link;
   photoViewImage.alt = el.name;
-  
+
   openModal(photoView);
-  }
+}
 
 function createCards(el) {
   const cardsElement = templateElement.cloneNode(true);
@@ -138,14 +135,32 @@ function escHandler(evt) {
   }
 }
 
-openButtonEdit.addEventListener("click", function() { 
-  openModal(popupEdit)
+openButtonEdit.addEventListener("click", function () {
+  openModal(popupEdit);
   usernameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
 });
 
-openButtonAdd.addEventListener("click", () => openModal(popupAdd));
-closeButtonEdit.addEventListener("click", () => closeModal(popupEdit));
+const resetForm = () => {
+  const inputList = Array.from(document.querySelectorAll(".popup__form-input"));
+  const spanList = Array.from(document.querySelectorAll(".popup__input-error"));
+  inputList.forEach(function (inputEl) {
+    inputEl.classList.remove("popup__input_type_error");
+  });
+  spanList.forEach(function (spanEl) {
+    spanEl.classList.remove("popup__error_visible");
+  });
+}
+
+openButtonAdd.addEventListener("click", () => {
+  openModal(popupAdd);
+  formElementCard.reset();
+  resetForm();
+});
+closeButtonEdit.addEventListener("click", () => {
+  closeModal(popupEdit);
+  resetForm();
+});
 closeButtonAdd.addEventListener("click", () => closeModal(popupAdd));
 closeButtonPhotoView.addEventListener("click", () => closeModal(photoView));
 closeOverlayEdit.addEventListener("click", () => closeModal(popupEdit));
